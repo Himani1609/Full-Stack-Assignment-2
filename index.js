@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const sessions = require("express-session");
 const dotenv = require("dotenv");
+const cors = require("cors");
 
 
 // load all the environment variables from .env file
@@ -10,38 +11,16 @@ dotenv.config();
 
 // initializing the express environment
 // express is already a package/module and we are getting everything in app const(like a json object)
-// const app = express();
-// const cors = require("cors");
 
-
-// use CORS middleware for all routes.
-const app = express(); // right after this
-
-// CORS MUST BE FIRST
-const cors = require("cors");
 // either use the default port or 8888
 const port = process.env.PORT || "8888";
 
-const allowedOrigins = [
-  "http://localhost:5174",
-  "https://full-stack-assignment-2.vercel.app"
-];
+const app = express(); 
 
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin) || /\.vercel\.app$/.test(origin)) {
-      callback(null, true);
-    } else {
-      console.log("Blocked by CORS:", origin);
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
+  origin: [  "http://localhost:5174","https://full-stack-assignment-2.vercel.app"],
+  credentials: true
 }));
-
-app.options("*", cors()); 
 
 // generally, app.use(path,middleware)
 // middleware are helper functions to handle requests and responses
