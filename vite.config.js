@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/projects/api': {
-        target: 'https://fullstackassignment1.onrender.com/',
+        target: 'https://fullstackassignment1.onrender.com',
         changeOrigin: true,
         secure: false
       }
