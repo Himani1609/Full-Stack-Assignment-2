@@ -17,9 +17,9 @@ const port = process.env.PORT || "8888";
 
 // use CORS middleware for all routes.
 app.use(cors({
-    origin: "http://localhost:5173", 
-    credentials: true // if you're using cookies/session
-})); 
+    origin: ["http://localhost:5174", "https://your-app-name.vercel.app"],
+    credentials: true
+  }));
 
 // generally, app.use(path,middleware)
 // middleware are helper functions to handle requests and responses

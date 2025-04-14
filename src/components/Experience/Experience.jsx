@@ -1,14 +1,24 @@
 import { useState, useEffect } from "react";
 import './Experience.css';
 
+const API = import.meta.env.VITE_API_BASE;
+
 export default function Experience() {
     const [experience, setExperience] = useState([]);
 
     useEffect(() => {
-        fetch(`/experiences/api/list`)
-            .then((response) => response.json())
-            .then((data) => setExperience(data));
+        const getExperience = async () => {
+            try {
+                const response = await fetch(`https://${API}/experiences/api/list`);
+                const data = await response.json();
+                setExperience(data);
+            } catch (error) {
+                console.error("Failed to fetch experience:", error);
+            }
+        };
+        getExperience();
     }, []);
+    
 
     return (
         <section id="experience" className="experience-section">
@@ -20,9 +30,9 @@ export default function Experience() {
                     
                     <div className="experience-meta">
                         <span className="company">{item.company}</span>
-                        <span className="dot">•</span>
+                        <span className="dot">.</span>
                         <span className="location">{item.location}</span>
-                        <span className="dot">•</span>
+                        <span className="dot">.</span>
                         <span className="duration">{item.startYear} – {item.endYear}</span>
                     </div>
 
