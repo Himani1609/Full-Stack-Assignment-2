@@ -14,8 +14,6 @@ dotenv.config();
 // const cors = require("cors");
 const cors = require("cors");
 
-
-
 const allowedOrigins = [
   "http://localhost:5174",
   "https://full-stack-assignment-2.vercel.app"
@@ -29,9 +27,13 @@ app.use(cors({
       callback(new Error("Not allowed by CORS: " + origin));
     }
   },
-  credentials: true
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
+// Handle preflight requests explicitly
+app.options("*", cors());
 
 
 // either use the default port or 8888
