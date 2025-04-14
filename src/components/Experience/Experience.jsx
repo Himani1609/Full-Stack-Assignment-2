@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import './Experience.css';
 
+const API = import.meta.env.VITE_API_BASE;
+
 export default function Experience() {
     const [experience, setExperience] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8888/experiences/api/list")
+        fetch(`http://${API}/experiences/api/list`)
             .then((response) => response.json())
             .then((data) => setExperience(data));
     }, []);

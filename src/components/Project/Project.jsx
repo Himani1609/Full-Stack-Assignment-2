@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import './Project.css';
 
+const API = import.meta.env.VITE_API_BASE;
+
 export default function Project() {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const response = await fetch("http://localhost:8888/projects/api/list");
+                const response = await fetch(`http://${API}/projects/api/list`);
                 const data = await response.json();
                 setProjects(data);
             } catch (error) {
