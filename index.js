@@ -16,7 +16,10 @@ const app = express();
 const port = process.env.PORT || "8888";
 
 // use CORS middleware for all routes.
-app.use(cors()); 
+app.use(cors({
+    origin: "http://localhost:5173", 
+    credentials: true // if you're using cookies/session
+})); 
 
 // generally, app.use(path,middleware)
 // middleware are helper functions to handle requests and responses
