@@ -1,0 +1,42 @@
+#hero {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 60px 20px;
+    background-color: #f8fbff;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.hero-left h1 {
+    font-size: 50px;
+    line-height: 1.4;
+    color: #222;
+}
+
+.hero-left span {
+    font-weight: bold;
+}
+
+.tagline {
+    color: #5c8df6;
+    font-weight: 500;
+    font-size: 32px;
+    margin-top: 10px;
+}
+
+.hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.profile-photo {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}

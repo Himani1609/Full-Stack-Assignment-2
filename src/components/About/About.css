@@ -1,0 +1,36 @@
+.about-container {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #ffffff;
+    font-family: 'Helvetica Neue', sans-serif;
+    max-width: 800px;
+    margin: auto;
+}
+
+.about-container h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.about-container p {
+    color: #444;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border: 1px solid #223a7b;
+    color: #223a7b;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #223a7b;
+    color: #fff;
+}
