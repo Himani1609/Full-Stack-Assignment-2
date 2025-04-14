@@ -3,23 +3,26 @@ const express = require("express");
 const path = require("path");
 const sessions = require("express-session");
 const dotenv = require("dotenv");
+
+// initializing the express environment
+// express is already a package/module and we are getting everything in app const(like a json object)
+const app = express();
 const cors = require("cors");
 
 // load all the environment variables from .env file
 dotenv.config();
 
-// initializing the express environment
-// express is already a package/module and we are getting everything in app const(like a json object)
-const app = express();
 
 // either use the default port or 8888
 const port = process.env.PORT || "8888";
 
 // use CORS middleware for all routes.
+
 app.use(cors({
-    origin: ["http://localhost:5174", "https://full-stack-assignment-2.vercel.app"],
-    credentials: true
-  }));
+  origin: ["https://full-stack-assignment-2.vercel.app", "http://localhost:5174"],
+  credentials: true,
+}));
+
 
 // generally, app.use(path,middleware)
 // middleware are helper functions to handle requests and responses
