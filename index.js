@@ -17,7 +17,7 @@ const port = process.env.PORT || "8888";
 
 // use CORS middleware for all routes.
 app.use(cors({
-    origin: ["http://localhost:5174", "https://full-stack-assignment-2.vercel.app/"],
+    origin: ["http://localhost:5174", "https://full-stack-assignment-2.vercel.app"],
     credentials: true
   }));
 
